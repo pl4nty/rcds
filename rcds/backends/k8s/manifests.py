@@ -38,13 +38,11 @@ def sync_manifests(all_manifests: Iterable[Dict[str, Any]]):
     v1 = client.CoreV1Api()
     appsv1 = client.AppsV1Api()
     networkingv1 = client.NetworkingV1Api()
-    networkingv1beta1 = client.NetworkingV1beta1Api()
 
     api_version_to_client = {
         "v1": v1,
         "apps/v1": appsv1,
         "networking.k8s.io/v1": networkingv1,
-        "networking.k8s.io/v1beta1": networkingv1beta1,
     }
 
     manifests_by_namespace_kind: Dict[str, Dict[str, List[Dict[str, Any]]]] = dict()
